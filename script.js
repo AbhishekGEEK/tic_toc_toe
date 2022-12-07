@@ -31,6 +31,7 @@ const checkwin = () => {
             document.querySelector(".turn").innerText = "GAME OVER " + boxtext[e[0]].innerText + " WON";
             win.play();
             gameover = true;
+    
         }
 
     })
@@ -43,9 +44,10 @@ let boxes = document.getElementsByClassName("box");
 Array.from(boxes).forEach(element => {
     let boxtext = element.querySelector(".boxtext")
     element.addEventListener('click', () => {
-
+        
         if (boxtext.innerText === "" && !gameover) {
-
+            
+            boxtext.style.color = "black";
             boxtext.innerText = turnn;
             turnn = changeTurn();
             audioturn.play();
@@ -64,5 +66,6 @@ reset.addEventListener('click', () => {
     })
     turnn = "X";
     gameover = false;
-        document.getElementsByClassName("turn")[0].innerHTML = "TURN FOR " + turnn;
+    document.getElementsByClassName("turn")[0].innerHTML = "TURN FOR " + turnn;
+    
 })
